@@ -73,7 +73,7 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 
 echo -e "\n### Installing additional tools"
-pacman -Sy --noconfirm --needed git reflector terminus-font dialog wget
+pacman -Sy --noconfirm --needed git reflector terminus-font dialog wget neovim wofi
 
 echo -e "\n### HiDPI screens"
 noyes=("Yes" "The font is too small" "No" "The font size is just fine")
@@ -199,8 +199,8 @@ echo "FONT=$font" > /mnt/etc/vconsole.conf
 genfstab -L /mnt >> /mnt/etc/fstab
 echo "${hostname}" > /mnt/etc/hostname
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
-echo "en_DK.UTF-8 UTF-8" >> /mnt/etc/locale.gen
-ln -sf /usr/share/zoneinfo/Europe/Copenhagen /mnt/etc/localtime
+echo "ja_JP.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+ln -sf /usr/share/zoneinfo/Asia/Tokyo /mnt/etc/localtime
 arch-chroot /mnt locale-gen
 cat << EOF > /mnt/etc/mkinitcpio.conf
 MODULES=()
@@ -235,7 +235,7 @@ arch-chroot /mnt chown -R "$user:$user" "/var/cache/pacman/${user}-local/"
 
 if [ "${user}" = "maximbaz" ]; then
     echo -e "\n### Cloning dotfiles"
-    arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/maximbaz/dotfiles.git ~/.dotfiles'
+    arch-chroot /mnt sudo -u $user bash -c 'git clone --recursive https://github.com/hiimnooob/dotfiles.git ~/.dotfiles'
 
     echo -e "\n### Running initial setup"
     arch-chroot /mnt /home/$user/.dotfiles/setup-system.sh
