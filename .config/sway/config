@@ -1,5 +1,5 @@
 input type:keyboard {
-    xkb_layout ja,us-hyper
+    xkb_layout jp,us-hyper
     xkb_options grp:shifts_toggle,grp:shift_caps_toggle,compose:ralt,caps:hyper,numpad:mac
     xkb_numlock enable
 }
