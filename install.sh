@@ -73,7 +73,7 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 
 echo -e "\n### Installing additional tools"
-pacman -Sy --noconfirm --needed git reflector terminus-font dialog wget neovim wofi
+pacman -Sy --noconfirm --needed git reflector terminus-font dialog wget
 
 echo -e "\n### HiDPI screens"
 noyes=("Yes" "The font is too small" "No" "The font size is just fine")
@@ -105,7 +105,7 @@ luks_header_device=$(get_choice "Installation" "Select disk to write LUKS header
 clear
 
 echo -e "\n### Setting up fastest mirrors"
-reflector --latest 30 --sort rate --save /etc/pacman.d/mirrorlist
+reflector --country 'Japan' --age 24 --latest 30 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo -e "\n### Setting up partitions"
 umount -R /mnt 2> /dev/null || true
