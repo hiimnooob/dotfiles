@@ -184,7 +184,7 @@ EOF
 fi
 
 echo -e "\n### Installing packages"
-pacstrap -i iptables-nft neovim wireplumber wofi /mnt
+pacstrap -i /mnt iptables-nft neovim wireplumber wofi
 pacstrap -i /mnt maximbaz
 
 echo -e "\n### Generating base config files"
